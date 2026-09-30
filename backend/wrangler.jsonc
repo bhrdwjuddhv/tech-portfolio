@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio-backend",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  // nodejs_compat (+ date >= 2025-09-01) lets Express run via cloudflare:node's httpServerHandler
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "portfolio",
+      // `npx wrangler d1 create portfolio` prints this id; paste it here before deploying.
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    // Comma-separated list of frontend origins allowed to call the API.
+    "CORS_ORIGIN": "http://localhost:5173"
+  }
+  // Secrets (set with `npx wrangler secret put <NAME>`, or .dev.vars locally):
+  // ADMIN_TOKEN, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET
+}

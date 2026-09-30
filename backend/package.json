@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:migrate": "wrangler d1 migrations apply portfolio --local",
+    "db:migrate:remote": "wrangler d1 migrations apply portfolio --remote",
+    "db:seed": "wrangler d1 execute portfolio --local --file seed/blogs.sql",
+    "db:seed:remote": "wrangler d1 execute portfolio --remote --file seed/blogs.sql"
+  },
+  "dependencies": {
+    "cloudinary": "^2.11.0",
+    "express": "^5.2.1",
+    "multer": "^2.4.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.144.0"
+  }
+}

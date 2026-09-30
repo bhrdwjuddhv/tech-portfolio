@@ -1,0 +1,54 @@
+{
+  "density": 2,
+  "cell": {
+    "w": 54,
+    "h": 55
+  },
+  "anchor": {
+    "x": 27,
+    "y": 52
+  },
+  "sheets": {
+    "idle": {
+      "src": "/pet/sprites/idle.webp",
+      "frames": 4
+    },
+    "walk": {
+      "src": "/pet/sprites/walk.webp",
+      "frames": 4
+    },
+    "run": {
+      "src": "/pet/sprites/run.webp",
+      "frames": 4
+    },
+    "look": {
+      "src": "/pet/sprites/look.webp",
+      "frames": 4
+    },
+    "sleep": {
+      "src": "/pet/sprites/sleep.webp",
+      "frames": 3
+    },
+    "happy": {
+      "src": "/pet/sprites/happy.webp",
+      "frames": 4
+    },
+    "teleportOut": {
+      "src": "/pet/sprites/teleportOut.webp",
+      "frames": 4
+    },
+    "teleportIn": {
+      "src": "/pet/sprites/teleportIn.webp",
+      "frames": 4
+    }
+  },
+  "dock": {
+    "src": "/pet/sprites/dock.webp",
+    "w": 76,
+    "h": 79,
+    "slot": {
+      "x": 41,
+      "y": 58
+    }
+  }
+}

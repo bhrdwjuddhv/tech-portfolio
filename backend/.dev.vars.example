@@ -1,0 +1,5 @@
+# Copy to .dev.vars for `npm run dev`. In production set each with: npx wrangler secret put <NAME>
+ADMIN_TOKEN=change-me-to-a-long-random-string
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
