@@ -2,6 +2,8 @@ import { FaReact } from "react-icons/fa";
 import { BiLogoJavascript } from "react-icons/bi";
 import {
   SiNodedotjs,
+  SiExpress,
+  SiTailwindcss,
   SiMongodb,
   SiPython,
   SiFastapi,
@@ -15,7 +17,7 @@ import {
 import { RiOpenaiFill } from "react-icons/ri";
 import { links } from "./site";
 
-// Travel AI is real; the rest are MOCK placeholders until the real projects are ready.
+// Travel AI and calendarish are real; the rest are MOCK placeholders until the real projects are ready.
 // For each project, replace:
 //   github / link   -> real repo + live URL (link is only clickable when isActive is true)
 //   projectImage    -> a real screenshot in /public/Project/ProjectImages
@@ -60,6 +62,42 @@ export const projects = [
     ],
     github: "https://github.com/bhrdwjuddhv/Travel-companion",
     link: "https://travelcompanion-seven.vercel.app/",
+  },
+  {
+    id: 5,
+    name: "calendarish",
+    slug: "calendarish",
+    type: "AI Web App",
+    description:
+      "Turns a college's academic calendar (a PDF, a photo of the notice board, or pasted text) into a colour-coded calendar students can edit, share and export, with an attendance tracker built in.",
+    highlights: [
+      "Reads academic calendars with GPT-4.1-mini vision through the Vercel AI SDK: PDFs are rendered to JPEG pages in the browser with pdf.js, then the model returns events as Zod-validated structured output.",
+      "The output schema makes the model analyse the document first (is it an academic calendar, its layout, semester period and session) before extracting events, so the scope check rides along in the same call. A static system prompt with a prompt-cache key lets repeat calls reuse OpenAI's prefix cache.",
+      "The model only reports facts per row (years, semesters, programme scope); which events apply to a student is decided in deterministic code, because asking the model to judge varied between runs. Rows repeated across semester sections are merged rather than dropped, and an empty first pass is retried once without hints.",
+      "Shared templates: a public calendar becomes a template, one per college + course + session. Before scanning, the upload wizard embeds the metadata (text-embedding-3-small) and searches Qdrant, so a calendar someone already uploaded is copied instead of scanned again. Templates go live only after admin approval, and anyone can request a takedown.",
+      "Personal calendars with day, week and month views, drag-and-drop editing (dnd-kit), hand-added events kept separate so re-importing a revised calendar never overwrites them, AI import of extra schedules, public share links, and export to .ics (Google, Apple, Outlook) or a zip of PNG month sheets.",
+      "Attendance tracker: day-wise or lecture-wise marking, AI-read weekly timetables versioned by effective date so a mid-semester change never rewrites past percentages, holidays pulled from the academic calendar, a contribution-style heatmap, and a bunk calculator showing how many classes to attend or how many can be skipped.",
+      "Express 5 + MongoDB backend organised by module: Google Sign-In verified server-side with JWT sessions, a consent gate with account export and deletion, Helmet and HPP hardening, Zod-validated requests, and per-user daily rate limits on every AI route.",
+    ],
+    isActive: false, // under build: shows "Building.."; set true + link when deployed
+    backgroundImage: "/Project/ProjectSection-BGS/Im1.png",
+    projectImage: "/Project/ProjectImages/calendrish.webp",
+    video: "/Project/ProjectVideos/calendarish.mp4", // add this file to show the demo
+    stack: [
+      { icon: <FaReact size={18} color="#61DAFB" />, label: "React" },
+      { icon: <SiNodedotjs size={18} color="#5FA04E" />, label: "Node.js" },
+      { icon: <SiMongodb size={18} color="#47A248" />, label: "MongoDB" },
+      { icon: <RiOpenaiFill size={18} />, label: "OpenAI (AI SDK)" },
+      { icon: <SiQdrant size={18} color="#DC244C" />, label: "Qdrant" },
+      { icon: <SiExpress size={18} />, label: "Express.js" },
+      {
+        icon: <SiTailwindcss size={18} color="#06B6D4" />,
+        label: "Tailwind CSS",
+      },
+      { icon: <SiZod size={18} color="#3E67B1" />, label: "Zod" },
+    ],
+    github: "https://github.com/bhrdwjuddhv/planner-cal",
+    link: "",
   },
   {
     id: 2,
