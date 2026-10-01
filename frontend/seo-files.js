@@ -63,6 +63,7 @@ ${posts.join("\n")}
 - GitHub: ${links.github}
 - X: ${links.x}
 - LinkedIn: ${links.linkedin}
+- Medium: ${links.medium}
 `;
 }
 

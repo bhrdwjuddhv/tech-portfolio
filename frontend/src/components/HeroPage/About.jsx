@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { about, links } from "@/data/site";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { FaMediumM } from "react-icons/fa";
 import {
   NewTwitterIcon,
   CalendarsIcon,
@@ -65,6 +66,14 @@ const About = () => {
             <a target="_blank" href={links.linkedin} className="flex-1">
               <span className="w-full dark:bg-neutral-800 hover:bg-neutral-100  cursor-pointer flex px-2 items-center justify-center gap-1.5 bg-white    -zinc-200 text-zinc-600 text-[12px] font-medium py-2 rounded-[10px]">
                 <HugeiconsIcon size={18} icon={Linkedin02Icon} />
+              </span>
+            </a>
+            <a target="_blank" href={links.medium} className="flex-1">
+              <span
+                aria-label="medium-btn"
+                className="w-full dark:bg-neutral-800 hover:bg-neutral-100 cursor-pointer flex px-2 items-center justify-center gap-1.5 bg-white text-zinc-600 text-[12px] font-medium py-2 rounded-[10px]"
+              >
+                <FaMediumM size={17} />
               </span>
             </a>
           </div>

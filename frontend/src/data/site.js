@@ -22,6 +22,7 @@ export const links = {
   github: "https://github.com/bhrdwjuddhv",
   x: "https://x.com/uddhavbhard",
   linkedin: "https://www.linkedin.com/in/bhrdwjuddhv/",
+  medium: "https://medium.com/@bhrdwjuddhv",
   // Optional: a Cal.com booking link like "yourname/15min" shows a "Book a Meet" button.
   calLink: "",
   calNamespace: "quickchat",

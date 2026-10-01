@@ -90,6 +90,19 @@ const ProjectDetail = () => {
               <p className="text-wrap text-neutral-800 :text-neutral-200  py-3 ">
                 {project?.description}
               </p>
+              {project.highlights?.length > 0 && (
+                <ul className="flex flex-col gap-2 pb-3">
+                  {project.highlights.map((h, i) => (
+                    <li
+                      key={i}
+                      className="flex gap-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
+                    >
+                      <span className="mt-2 block h-1 w-1 shrink-0 rounded-full bg-neutral-400" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
           <div className="px-5 py-3  ">

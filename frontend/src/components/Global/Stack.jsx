@@ -1,4 +1,4 @@
-import { skills } from "@/data/skills";
+import { skills, certifications } from "@/data/skills";
 
 const Badge = ({ name, icon }) => (
   <div className="inline-flex  items-center gap-1.5 px-3 py-1 rounded-md bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium hover:border-neutral-400  transition-colors border-neutral-200 border-dashed cursor-default select-none border  whitespace-nowrap">
@@ -20,6 +20,22 @@ const Stack = () => {
             <Badge key={index} name={item.name} icon={item.icon} />
           ))}
         </div>
+        {certifications.length > 0 && (
+          <div className="flex flex-col gap-1.5 mt-2">
+            <p className="text-md text-neutral-500 font-mono uppercase">
+              Certifications
+            </p>
+            {certifications.map((c) => (
+              <p
+                key={c.name}
+                className="text-sm text-neutral-700 dark:text-neutral-300"
+              >
+                {c.name}
+                <span className="text-neutral-400"> · {c.issuer}</span>
+              </p>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
