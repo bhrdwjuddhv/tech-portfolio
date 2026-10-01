@@ -56,5 +56,5 @@ export const skills = [
 ];
 
 export const certifications = [
-  { name: "GenAI with JavaScript Cohort 2026", issuer: "ChaiCode" },
+  { name: "GenAI with JavaScript Cohort 2026", issuer: "ChaiCode", credential: "https://courses.chaicode.com/learn/certificate/14126644-270594" },
 ];

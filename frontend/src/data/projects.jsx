@@ -19,8 +19,10 @@ import { links } from "./site";
 // For each project, replace:
 //   github / link   -> real repo + live URL (link is only clickable when isActive is true)
 //   projectImage    -> a real screenshot in /public/Project/ProjectImages
-//   video           -> optional demo video path, e.g. "/Project/ProjectVideos/<slug>.mp4"
-//                      (the project page shows "No video available" without one)
+//   video           -> demo video shown at the top of the project page. Put the file in
+//                      /public/Project/ProjectVideos/ and set e.g. "/Project/ProjectVideos/<slug>.mp4"
+//                      (MP4/H.264 plays everywhere; it autoplays muted on loop). Empty or missing
+//                      file -> the page shows "Demo video coming soon" with the screenshot.
 // backgroundImage is the decorative card background shown on hover.
 // highlights (optional) are listed as bullets on the project's own page.
 export const projects = [
@@ -41,9 +43,10 @@ export const projects = [
       "Streamed live generation progress to the React frontend with Server-Sent Events (SSE): a route skeleton appears first and results fill in as they arrive. Each external call has its own timeout and falls back to an estimate, so one slow API can't stall the whole generation.",
       "Built 3 planning modes (fully automatic, semi-automatic, and step-by-step with user decisions), budget tiers with hard spending caps, and train-schedule-aware day pacing (a late-night arrival is automatically planned as a travel-only day).",
     ],
-    isActive: false, // no live link yet: shows "Building.."; set true + link when deployed
+    isActive: true,
     backgroundImage: "/Project/ProjectSection-BGS/image.png",
-    projectImage: "/Project/ProjectImages/travel-ai.svg",
+    projectImage: "/Project/ProjectImages/travel-ai.webp",
+    video: "/Project/ProjectVideos/travel-ai.mp4", // add this file to show the demo
     stack: [
       { icon: <RiOpenaiFill size={18} />, label: "OpenAI Agents SDK" },
       { icon: <FaReact size={18} color="#61DAFB" />, label: "React" },
@@ -55,8 +58,8 @@ export const projects = [
         label: "Google Maps API",
       },
     ],
-    github: links.github,
-    link: "",
+    github: "https://github.com/bhrdwjuddhv/Travel-companion",
+    link: "https://travelcompanion-seven.vercel.app/",
   },
   {
     id: 2,
@@ -68,6 +71,7 @@ export const projects = [
     isActive: true,
     backgroundImage: "/Project/ProjectSection-BGS/Im1.png",
     projectImage: "/Project/ProjectImages/documind.svg",
+    video: "",
     stack: [
       { icon: <FaReact size={18} color="#61DAFB" />, label: "React" },
       { icon: <SiPython size={18} color="#3776AB" />, label: "Python" },
@@ -87,6 +91,7 @@ export const projects = [
     isActive: false,
     backgroundImage: "/Project/ProjectSection-BGS/Im3.png",
     projectImage: "/Project/ProjectImages/treeindex.svg",
+    video: "",
     stack: [
       { icon: <SiPython size={18} color="#3776AB" />, label: "Python" },
       { icon: <SiFastapi size={18} color="#009688" />, label: "FastAPI" },
@@ -105,6 +110,7 @@ export const projects = [
     isActive: false,
     backgroundImage: "/Project/ProjectSection-BGS/Im2.png",
     projectImage: "/Project/ProjectImages/ledgerly.svg",
+    video: "",
     stack: [
       {
         icon: <BiLogoJavascript size={18} color="#F7DF1E" />,

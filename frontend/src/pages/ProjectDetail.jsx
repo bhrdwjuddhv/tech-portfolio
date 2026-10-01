@@ -6,6 +6,7 @@ import { ChevronLeft } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import ProjectVideoPlayer from "@/components/Project/ProjectVideoPlayer";
 import Footer from "@/components/Footer/Footer";
+import Badge from "@/components/Global/Badge";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
@@ -17,22 +18,25 @@ const ProjectDetail = () => {
         <div className="mx-auto gap-1  flex flex-col max-w-2xl -x  -neutral-200    relative">
           <div className="p-2 items-center flex gap-2 mt-2">
             <Link to={"/"}>
-              <div className="text-neutral-700 w-fit hover::bg-neutral-900 hover::-neutral-800 rounded-md  -transparent hover:-neutral-200 hover:bg-neutral-50">
+              <div className="text-neutral-700 dark:text-neutral-300 w-fit rounded-md hover:bg-neutral-50 dark:hover:bg-neutral-900">
                 <HugeiconsIcon icon={ChevronLeft} />
               </div>
             </Link>
             <p className="text-lg font-sans font-semibold">{project?.name}</p>
           </div>
           {/* Video Block */}
-          <div className="h-70  m-2 rounded-lg p-2 border border-neutral-200 :-neutral-800">
-            <ProjectVideoPlayer src={project?.video} />
+          <div className="h-70 m-2 rounded-lg p-2 border border-neutral-200 dark:border-neutral-800">
+            <ProjectVideoPlayer
+              src={project.video}
+              poster={project.projectImage}
+            />
           </div>
           {/* Links Block */}
-          <div className="w-full p-2 grid  m-2 grid-cols-2 divide-x divide-neutral-200 :divide-neutral-900  rounded-lg overflow-hidden text-sm">
+          <div className="w-full p-2 grid  m-2 grid-cols-2 divide-x divide-neutral-200 dark:divide-neutral-800 rounded-lg overflow-hidden text-sm">
             <Link
               to={`${project?.github}`}
               target="_blank"
-              className="flex items-center justify-center gap-1.5 py-2.5 text-neutral-600 :text-neutral-400 hover:bg-neutral-50 :hover:bg-neutral-900 transition-colors cursor-pointer"
+              className="flex items-center justify-center gap-1.5 py-2.5 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors cursor-pointer"
             >
               <svg
                 width="15"
@@ -48,7 +52,7 @@ const ProjectDetail = () => {
             <Link
               to={project.isActive ? project.link : "#"}
               target="_blank"
-              className={`flex items-center  justify-center gap-1.5 py-2.5   ${project?.isActive ? "hover:bg-neutral-50 text-neutral-600 :text-neutral-400  :hover:bg-neutral-900 cursor-pointer" : "hover:bg-none text-neutral-300 :text-neutral-900 cursor-not-allowed  :hover:bg-none"}  transition-colors`}
+              className={`flex items-center  justify-center gap-1.5 py-2.5   ${project?.isActive ? "hover:bg-neutral-50 text-neutral-600 dark:text-neutral-400 dark:hover:bg-neutral-900 cursor-pointer" : "text-neutral-300 dark:text-neutral-700 cursor-not-allowed"}  transition-colors`}
             >
               <svg
                 width="15"
@@ -73,7 +77,7 @@ const ProjectDetail = () => {
                 {project?.name}
               </h3>
               <span
-                className={`text-[11px] flex items-center gap-1 justify-center  rounded-full ${project?.isActive ? " text-emerald-700  :text-emerald-400" : "text-orange-500"}`}
+                className={`text-[11px] flex items-center gap-1 justify-center  rounded-full ${project?.isActive ? "text-emerald-700 dark:text-emerald-400" : "text-orange-500"}`}
               >
                 <div className="w-3 h-3 relative">
                   <div
@@ -87,7 +91,7 @@ const ProjectDetail = () => {
               </span>
             </div>
             <div>
-              <p className="text-wrap text-neutral-800 :text-neutral-200  py-3 ">
+              <p className="text-wrap text-neutral-800 dark:text-neutral-200 py-3">
                 {project?.description}
               </p>
               {project.highlights?.length > 0 && (
@@ -106,7 +110,7 @@ const ProjectDetail = () => {
             </div>
           </div>
           <div className="px-5 py-3  ">
-            <p className="text-lg font-sans font-semibold text-neutral-800 :text-neutral-300 mb-2.5 tracking-wide ">
+            <p className="text-lg font-sans font-semibold text-neutral-800 dark:text-neutral-300 mb-2.5 tracking-wide">
               Stack used
             </p>
             <div className="flex flex-wrap gap-2 pb-2">
@@ -115,13 +119,13 @@ const ProjectDetail = () => {
               ))}
             </div>
           </div>
-          <div className="p-4 mb-8 -mt-1 font-sans -neutral-200 :-neutral-900 items-center justify-center flex ">
-            <p className="text-sm text-neutral-600">
+          <div className="p-4 mb-8 -mt-1 font-sans items-center justify-center flex">
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
               For more cool projects, visit my{" "}
               <Link
                 to={links.github}
                 target={"_blank"}
-                className="text-neutral-900 :text-neutral-300 font-semibold"
+                className="text-neutral-900 dark:text-neutral-200 font-semibold"
               >
                 Github.
               </Link>
@@ -135,10 +139,3 @@ const ProjectDetail = () => {
 };
 
 export default ProjectDetail;
-
-const Badge = ({ name, icon }) => (
-  <div className="inline-flex  items-center gap-1.5 px-3 py-1 rounded-md border border-dashed border-neutral-300 hover:border-neutral-700  bg-white   text-sm font-medium   transition-colors cursor-default select-none whitespace-nowrap">
-    <span className="text-xs leading-none">{icon}</span>
-    {name}
-  </div>
-);
